@@ -9,10 +9,6 @@
     },
     {
         "type": 1,
-        "text": "Ändringsyrkande"
-    },
-    {
-        "type": 1,
         "text": "Inspektorn tolkar"
     },
     {
@@ -33,7 +29,7 @@
     },
     {
         "type": 1,
-        "text": "Motion godkäns"
+        "text": "Motion godkänns"
     },
     {
         "type": 1,
@@ -41,7 +37,7 @@
     },
     {
         "type": 1,
-        "text": "Propp godkäns"
+        "text": "Propp godkänns"
     },
     {
         "type": 1,
@@ -97,6 +93,10 @@
     },
     {
         "type": 1,
+        "text": "TalP blir förrvirade"
+    },
+    {
+        "type": 1,
         "text": "Mötet blir förvirrat"
     },
     {
@@ -130,5 +130,13 @@
     {
         "type": 1,
         "text": "Någon konsulterar reglementet"
+    },
+    {
+        "type": 1,
+        "text": "En tveksam replikrätt"
+    },
+    {
+        "type": 1,
+        "text": "Ekonomisk parkour"
     }
 ]
