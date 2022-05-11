@@ -190,7 +190,7 @@ class Game extends React.Component {
             <>
                 <Container fluid>
                     <Row>
-                        <h1>Sektionsmötesbingo😎</h1>
+                        <h1>FuMbingo😎</h1>
                     </Row>
                     <Row>
                         <Col md={2}>
