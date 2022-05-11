@@ -33,6 +33,10 @@
     },
     {
         "type": 1,
+        "text": "Mötet har redan läst en handling"
+    },
+    {
+        "type": 1,
         "text": "Motion avslås"
     },
     {
@@ -78,6 +82,10 @@
     {
         "type": 1,
         "text": "Folk vill desperat gå hem"
+    },
+    {
+        "type": 1,
+        "text": "Arbetsgrupp skapas"
     },
     {
         "type": 1,
