@@ -74,7 +74,38 @@ class Square extends React.Component<SquareProps, SquareState> {
         let classname = 'square';
 
         if (this.state.toggled) {
-            classname += ' btn-active';
+            let i = Math.floor(Math.random() * 40);
+
+            let back = "back-chs";
+            switch(i) {
+                case 0:
+                    back = "back-for"
+                    break;
+                case 1:
+                    back = "back-caps"
+                    break;
+                case 2:
+                    back = "back-ccp"
+                    break;
+                case 3:
+                    back = "back-def"
+                    break;
+                case 4:
+                    back = "back-kap"
+                    break;
+                case 5:
+                    back = "back-kpi"
+                    break;
+                case 6:
+                    back = "back-pt"
+                    break;
+                case 7:
+                    back = "back-sak"
+                    break;
+            }
+
+
+            classname += ' btn-active ' + back;
         }
         return classname;
     }
