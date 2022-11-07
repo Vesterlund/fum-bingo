@@ -58,7 +58,7 @@ class Counter extends React.Component<CoutnerProps,CounterState> {
             <button className='btn-counter' onClick={() => this.handleClick()}>
                 +
             </button>
-            <h2>Ordningsfrågor: {this.state.count}</h2>
+            <h2>{this.state.count}</h2>
             <button className='btn-counter' onClick={() => this.lowerCount()}>
                 -
             </button>
@@ -92,8 +92,11 @@ class GenerateBoardButton extends React.Component<any, any> {
 class Square extends React.Component<SquareProps, SquareState> {
     constructor(props: SquareProps) {
         super(props);
+
+        let toggledState = localStorage.getItem(this.props.btnText);
+
         this.state = {
-            toggled: false,
+            toggled: (toggledState != null) ? JSON.parse(toggledState): false,
             text: this.props.btnText,
         };
     }
@@ -101,6 +104,7 @@ class Square extends React.Component<SquareProps, SquareState> {
     handleClick(): void {
         let b = this.state.toggled;
         this.setState({ toggled: !b, });
+        localStorage.setItem(this.props.btnText, (!b) ? 'true':'false');
     }
 
     buttonStyle(): string {
@@ -236,14 +240,15 @@ class Game extends React.Component {
                     </Row>
                     <Row>
                         <Col md={2}>
-                            <h2>Ordningfrågecounter</h2>
+                            <h2>Räknare</h2>
                             <Counter />
                         </Col>
                         <Col md={1}></Col>
                         <Col md={7}>
                             <Board />
                         </Col>
-                        <Col md={2}>
+                        <Col md={1}></Col>
+                        <Col md={1}>
                         <GenerateBoardButton />
                         </Col>
                     </Row>
