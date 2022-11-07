@@ -23,11 +23,6 @@ interface CounterState {
     count: number;
 }
 
-interface GenerateBoardButtonProps {
-}
-interface GenerateBoardButtonState {   
-}
-
 class Counter extends React.Component<CoutnerProps,CounterState> {
     constructor(props: CoutnerProps) {
         super(props);
@@ -61,10 +56,7 @@ class Counter extends React.Component<CoutnerProps,CounterState> {
     }
 }
 
-class GenerateBoardButton extends React.Component<GenerateBoardButtonProps,GenerateBoardButtonState> {
-    constructor(props: CoutnerProps) {
-        super(props);
-    }
+class GenerateBoardButton extends React.Component<any, any> {
 
     handleClick() : void {
         localStorage.removeItem('squares');
