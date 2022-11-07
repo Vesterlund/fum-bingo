@@ -193,44 +193,21 @@ class Board extends React.Component {
         let boardState = localStorage.getItem('squares');
         let squares: { [key: number]: string } = (boardState != null) ? JSON.parse(boardState) : this.generateBoard();
         localStorage.setItem('squares', JSON.stringify(squares));
+
+        let jsxElements : [JSX.Element] = [<></>];
+        for(let i = 0; i < 5; i++) {
+            jsxElements.push(
+                <Row>
+                    <Square btnText={squares[i*5 + 0]} />
+                    <Square btnText={squares[i*5 + 1]} />
+                    <Square btnText={squares[i*5 + 2]} />
+                    <Square btnText={squares[i*5 + 3]} />
+                    <Square btnText={squares[i*5 + 4]} />
+                </Row>
+            )
+        }
         return (
-            <>
-                <Row>
-                    <Square btnText={squares[0]} />
-                    <Square btnText={squares[1]} />
-                    <Square btnText={squares[2]} />
-                    <Square btnText={squares[3]} />
-                    <Square btnText={squares[4]} />
-                </Row>
-                <Row>
-                    <Square btnText={squares[5]} />
-                    <Square btnText={squares[6]} />
-                    <Square btnText={squares[7]} />
-                    <Square btnText={squares[8]} />
-                    <Square btnText={squares[9]} />
-                </Row>
-                <Row>
-                    <Square btnText={squares[10]} />
-                    <Square btnText={squares[11]} />
-                    <Square btnText={squares[12]} />
-                    <Square btnText={squares[13]} />
-                    <Square btnText={squares[14]} />
-                </Row>
-                <Row>
-                    <Square btnText={squares[15]} />
-                    <Square btnText={squares[16]} />
-                    <Square btnText={squares[17]} />
-                    <Square btnText={squares[18]} />
-                    <Square btnText={squares[19]} />
-                </Row>
-                <Row>
-                    <Square btnText={squares[20]} />
-                    <Square btnText={squares[21]} />
-                    <Square btnText={squares[22]} />
-                    <Square btnText={squares[23]} />
-                    <Square btnText={squares[24]} />
-                </Row>
-            </>
+            jsxElements
         );
     }
 }
