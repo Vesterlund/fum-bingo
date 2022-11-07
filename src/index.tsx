@@ -26,19 +26,30 @@ interface CounterState {
 class Counter extends React.Component<CoutnerProps,CounterState> {
     constructor(props: CoutnerProps) {
         super(props);
-
+        let count = localStorage.getItem('count');
         this.state = {
-            count: 0,
+            count: (count != null) ? parseInt(count) : 0,
         }
+    }
+
+    updateLocalStorage(c : number) : void {
+        localStorage.setItem('count', c.toString());
     }
 
     handleClick() : void {
         let c = this.state.count + 1;
-        this.setState({count: c}); 
+        this.setState({count: c});
+        this.updateLocalStorage(c);
     }
     lowerCount() : void {
         let c = this.state.count - 1;
+        c = (c < 0) ? 0 : c;
         this.setState({count: c}); 
+        this.updateLocalStorage(c);
+    }
+    resetCount() : void {
+        this.setState({count: 0});
+        this.updateLocalStorage(0);
     }
 
     render() {
@@ -50,6 +61,9 @@ class Counter extends React.Component<CoutnerProps,CounterState> {
             <h2>Ordningsfrågor: {this.state.count}</h2>
             <button className='btn-counter' onClick={() => this.lowerCount()}>
                 -
+            </button>
+            <button className='btn-counter' onClick={() => this.resetCount()}>
+                reset
             </button>
             </>
         );
