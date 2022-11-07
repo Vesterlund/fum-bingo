@@ -23,6 +23,11 @@ interface CounterState {
     count: number;
 }
 
+interface GenerateBoardButtonProps {
+}
+interface GenerateBoardButtonState {   
+}
+
 class Counter extends React.Component<CoutnerProps,CounterState> {
     constructor(props: CoutnerProps) {
         super(props);
@@ -55,6 +60,28 @@ class Counter extends React.Component<CoutnerProps,CounterState> {
         );
     }
 }
+
+class GenerateBoardButton extends React.Component<GenerateBoardButtonProps,GenerateBoardButtonState> {
+    constructor(props: CoutnerProps) {
+        super(props);
+    }
+
+    handleClick() : void {
+        localStorage.removeItem('squares');
+        window.location.reload();
+    }
+
+    render() {
+        return (
+            <>
+            <button className='btn-counter' onClick={() => this.handleClick()}>
+                Generera nytt bräde
+            </button>
+            </>
+        );
+    }
+}
+
 
 class Square extends React.Component<SquareProps, SquareState> {
     constructor(props: SquareProps) {
@@ -171,8 +198,9 @@ class Board extends React.Component {
     }
 
     render() {
-        let squares: { [key: number]: string } = this.generateBoard();
-
+        let boardState = localStorage.getItem('squares');
+        let squares: { [key: number]: string } = (boardState != null) ? JSON.parse(boardState) : this.generateBoard();
+        localStorage.setItem('squares', JSON.stringify(squares));
         return (
             <>
                 <Row>
@@ -231,6 +259,9 @@ class Game extends React.Component {
                         <Col md={1}></Col>
                         <Col md={7}>
                             <Board />
+                        </Col>
+                        <Col md={2}>
+                        <GenerateBoardButton />
                         </Col>
                     </Row>
                 </Container>
